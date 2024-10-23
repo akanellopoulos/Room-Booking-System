@@ -19,6 +19,8 @@ Also, dummy data are created on the DB. Please check the java file in the path: 
 
 Three end-points are created with base path: /room.
 
+You can find the end-points on the swagger URL: http://localhost:8080/swagger-ui.html.
+
 The end-points are the following:
 
 1. A GET end-point that accepts two mandatory values:
