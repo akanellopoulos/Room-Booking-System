@@ -26,6 +26,7 @@ public class RoomsBookings {
     private LocalDate bookingDate;
     private LocalTime timeFrom;
     private LocalTime timeTo;
+    private boolean isDeleted;
 
     public RoomsBookings() {
     }
@@ -36,6 +37,14 @@ public class RoomsBookings {
         this.bookingDate = bookingDate;
         this.timeFrom = timeFrom;
         this.timeTo = timeTo;
+    }
+
+    public boolean isDeleted() {
+        return isDeleted;
+    }
+
+    public void setDeleted(boolean deleted) {
+        isDeleted = deleted;
     }
 
     public Long getId() {

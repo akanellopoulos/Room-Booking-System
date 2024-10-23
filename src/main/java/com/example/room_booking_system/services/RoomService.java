@@ -72,7 +72,7 @@ public class RoomService {
         }
 
         // Validate date: must be now or in the future
-        if (date.isBefore(LocalDate.now()) || timeFrom.isBefore(LocalTime.now())) {
+        if (date.isBefore(LocalDate.now()) || (date.isEqual(LocalDate.now()) && timeFrom.isBefore(LocalTime.now()))) {
             log.info("The booking date cannot be in the past, given date: {} - now: {} for booking with email: {},and timeFrom: {} - time now: {}", date, LocalDate.now(), email, timeFrom, LocalTime.now());
             return new RoomBookingResponse(false, "INVALID_OLD_DATE");
         }
@@ -138,7 +138,7 @@ public class RoomService {
         // Calculate the duration between timeFrom and timeTo
         long hoursBetween = Duration.between(timeFrom, timeTo).toHours();
 
-        // Check if the duration is 1, 2, or 3 hours
+        // Check if the duration is 1, 2, or 3... hours
         return hoursBetween > 0 && hoursBetween % 1 == 0;
     }
 
@@ -178,15 +178,15 @@ public class RoomService {
         }
 
         // Validate date: must be now or in the future
-        if (date.isBefore(LocalDate.now()) || roomBooking.getTimeFrom().isBefore(LocalTime.now())) {
+        if (date.isBefore(LocalDate.now()) || (date.isEqual(LocalDate.now()) && roomBooking.getTimeFrom().isBefore(LocalTime.now()))) {
             log.info("The booking date cannot be in the past, given date: {} - now: {} for booking with email: {},and timeFrom: {} - time now: {}", date, LocalDate.now(), email, roomBooking.getTimeFrom(), LocalTime.now());
             return new RoomBookingResponse(false, "INVALID_OLD_DATE");
         }
 
-        // Remove the  booking if validations pass
-        roomsBookingsRepository.deleteById(roomBooking.getId());
+        roomBooking.setDeleted(true);
+        roomsBookingsRepository.save(roomBooking);
 
-        log.info("Success, the requested booking with details name: {}, email: {}, date: {}, timeFrom: {},and timeTo: {} has been removed", name, email, date, roomBooking.getTimeFrom(), roomBooking.getTimeTo());
+        log.info("Success, the requested booking with details name: {}, email: {}, date: {}, timeFrom: {},and timeTo: {} has been removed, isDeleted flag changed to isDeleted: {}", name, email, date, roomBooking.getTimeFrom(), roomBooking.getTimeTo(), roomBooking.isDeleted());
         return new RoomBookingResponse(true, "SUCCESS_BOOKING_DELETED");
     }
 

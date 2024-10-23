@@ -51,7 +51,7 @@ public class RoomController {
      * @param date
      * @param timeFrom
      * @param timeTo
-     * @return A RoomBookingResponse object containing the result of the operation, isSuccess: true / false and a message ( the messages and the end-points are described on the HELP.md )
+     * @return A RoomBookingResponse object containing the result of the operation, isSuccess: true / false and a message ( the messages and the end-points are described on the README.md )
      */
     @PostMapping
     public RoomBookingResponse addRoomBooking(@RequestParam String name,
@@ -75,7 +75,7 @@ public class RoomController {
      * @param name
      * @param email
      * @param date
-     * @return A RoomBookingResponse object containing the result of the operation, isSuccess: true / false and a message ( the messages and the end-points are described on the HELP.md )
+     * @return A RoomBookingResponse object containing the result of the operation, isSuccess: true / false and a message ( the messages and the end-points are described on the README.md )
      */
     @DeleteMapping
     public RoomBookingResponse deleteBooking(@RequestParam String name,

@@ -54,14 +54,14 @@ public class Config {
             RoomsBookings a1 = new RoomsBookings(
                     1L,
                     "a1@gmail.com",
-                    LocalDate.of(2024, Month.OCTOBER, 20),
+                    LocalDate.of(2024, Month.OCTOBER, 23),
                     LocalTime.of(13, 0),
                     LocalTime.of(14, 0)
             );
             RoomsBookings a2 = new RoomsBookings(
                     1L,
                     "a2@gmail.com",
-                    LocalDate.of(2024, Month.OCTOBER, 20),
+                    LocalDate.of(2024, Month.OCTOBER, 23),
                     LocalTime.of(14, 0),
                     LocalTime.of(15, 0)
             );
@@ -89,14 +89,14 @@ public class Config {
             RoomsBookings b1 = new RoomsBookings(
                     2L,
                     "b1@gmail.com",
-                    LocalDate.of(2024, Month.OCTOBER, 20),
+                    LocalDate.of(2024, Month.OCTOBER, 24),
                     LocalTime.of(12, 0),
                     LocalTime.of(13, 0)
             );
             RoomsBookings b2 = new RoomsBookings(
                     2L,
                     "b2@gmail.com",
-                    LocalDate.of(2024, Month.OCTOBER, 22),
+                    LocalDate.of(2024, Month.OCTOBER, 24),
                     LocalTime.of(13, 0),
                     LocalTime.of(14, 0)
             );
@@ -117,7 +117,7 @@ public class Config {
             RoomsBookings c2 = new RoomsBookings(
                     3L,
                     "c2@gmail.com",
-                    LocalDate.of(2024, Month.OCTOBER, 22),
+                    LocalDate.of(2024, Month.OCTOBER, 24),
                     LocalTime.of(14, 0),
                     LocalTime.of(15, 0)
             );
